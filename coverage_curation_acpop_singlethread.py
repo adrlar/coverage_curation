@@ -58,9 +58,6 @@ num_sample = len(filedata)
 output_file_subsample.write("#chrom\tpos\tmean\tmedian\t1\t5\t10\t15\t20\t25\t30\t50\t100\n")
 t_one = time.time()
 t_two = time.time()
-file_loc = {}
-for name in coverage_files:
-    file_loc[name] = 0
 
 while True:
     #reading the first line to check if we can skip reading the 299 other files
