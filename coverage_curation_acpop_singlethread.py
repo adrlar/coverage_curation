@@ -75,8 +75,11 @@ while True:
     #I wish I could parallelise this step but I cant seem to get that to work...
     linedata = [readline_from_gz(handle) for handle in filedata[1:]]
 
-    coverages = [int(firstline[2])] #Adding the first coverage value
-
+    try:
+        coverages = [int(float(firstline[2]))] #Adding the first coverage value
+    except ValueError as e:
+        coverages = [0]
+        print "BROKEN COVERAGE VALUE", firstline
     for sample in linedata:
         if sample:
             try:
